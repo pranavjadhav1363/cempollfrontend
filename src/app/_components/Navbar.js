@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const Navbar = () =>
 {
@@ -70,8 +71,8 @@ const Navbar = () =>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <a href="/" className="text-gray-700 hover:text-orange-600 font-medium">Home</a>
-            <a href="/about" className="text-gray-700 hover:text-orange-600 font-medium">About Us</a>
+            <Link href="/" className="text-gray-700 hover:text-orange-600 font-medium">Home</Link>
+            <Link href="/about" className="text-gray-700 hover:text-orange-600 font-medium">About Us</Link>
 
             {/* Products Dropdown */}
             <div className="relative" ref={dropdownRef}>
@@ -90,20 +91,20 @@ const Navbar = () =>
                     <div className="px-4 py-2 text-sm text-red-500">{categoryError}</div>
                   ) : (
                     categories.map((category, index) => (
-                      <a
+                      <Link
                         key={index}
                         href={`/products?category=${category._id}`}
                         className="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-orange-600"
                       >
                         {category.CategoryName}
-                      </a>
+                      </Link>
                     ))
                   )}
                 </div>
               )}
             </div>
 
-            <a href="/contact" className="text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+            <Link href="/contact" className="text-gray-700 hover:text-orange-600 font-medium">Contact</Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -120,8 +121,8 @@ const Navbar = () =>
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t border-gray-200 py-4">
             <div className="flex flex-col space-y-4 px-4">
-              <a href="/" className="text-gray-700 hover:text-orange-600 font-medium">Home</a>
-              <a href="/about" className="text-gray-700 hover:text-orange-600 font-medium">About Us</a>
+              <Link href="/" className="text-gray-700 hover:text-orange-600 font-medium">Home</Link>
+              <Link href="/about" className="text-gray-700 hover:text-orange-600 font-medium">About Us</Link>
 
               <div className="border-t border-gray-200 pt-2">
                 <p className="text-sm text-gray-500 font-semibold">Products</p>
@@ -131,18 +132,18 @@ const Navbar = () =>
                   <div className="text-sm text-red-500">{categoryError}</div>
                 ) : (
                   categories.map((category, index) => (
-                    <a
+                    <Link
                       key={index}
                       href={`/products?category=${category._id}`}
                       className="block text-gray-700 hover:text-orange-600 text-sm py-1"
                     >
                       {category.CategoryName}
-                    </a>
+                    </Link>
                   ))
                 )}
               </div>
 
-              <a href="/contact" className="text-gray-700 hover:text-orange-600 font-medium">Contact</a>
+              <Link href="/contact" className="text-gray-700 hover:text-orange-600 font-medium">Contact</Link>
             </div>
           </div>
         )}

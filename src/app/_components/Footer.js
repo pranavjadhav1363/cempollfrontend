@@ -1,5 +1,6 @@
 import React from 'react'
 import { ChevronDown, Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin, ArrowRight, Building, Beaker, Shield, Zap } from 'lucide-react';
+import Link from 'next/link';
 
 const Footer = () =>
 {
@@ -25,18 +26,18 @@ const Footer = () =>
                             Leading manufacturer of innovative construction chemicals for modern infrastructure.
                         </p>
                         <div className="flex space-x-4">
-                            <a href="#" className="w-10 h-10 bg-gradient-to-br from-orange-500 to-pink-500 rounded-full flex items-center justify-center hover:from-orange-600 hover:to-pink-600 transition-all">
+                            <Link href="#" className="w-10 h-10 bg-gradient-to-br from-orange-500 to-pink-500 rounded-full flex items-center justify-center hover:from-orange-600 hover:to-pink-600 transition-all">
                                 <Facebook className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="w-10 h-10 bg-gradient-to-br from-green-500 to-orange-500 rounded-full flex items-center justify-center hover:from-green-600 hover:to-orange-600 transition-all">
+                            </Link>
+                            <Link href="#" className="w-10 h-10 bg-gradient-to-br from-green-500 to-orange-500 rounded-full flex items-center justify-center hover:from-green-600 hover:to-orange-600 transition-all">
                                 <Twitter className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="w-10 h-10 bg-gradient-to-br from-pink-500 to-green-500 rounded-full flex items-center justify-center hover:from-pink-600 hover:to-green-600 transition-all">
+                            </Link>
+                            <Link href="#" className="w-10 h-10 bg-gradient-to-br from-pink-500 to-green-500 rounded-full flex items-center justify-center hover:from-pink-600 hover:to-green-600 transition-all">
                                 <Instagram className="w-5 h-5" />
-                            </a>
-                            <a href="#" className="w-10 h-10 bg-gradient-to-br from-orange-500 to-green-500 rounded-full flex items-center justify-center hover:from-orange-600 hover:to-green-600 transition-all">
+                            </Link>
+                            <Link href="#" className="w-10 h-10 bg-gradient-to-br from-orange-500 to-green-500 rounded-full flex items-center justify-center hover:from-orange-600 hover:to-green-600 transition-all">
                                 <Linkedin className="w-5 h-5" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
@@ -44,11 +45,11 @@ const Footer = () =>
                     <div>
                         <h3 className="text-lg font-semibold mb-6 text-orange-400">Quick Links</h3>
                         <div className="space-y-4">
-                            <a href="/home" className="block text-gray-400 hover:text-white transition-colors">Home</a>
-                            <a href="/about" className="block text-gray-400 hover:text-white transition-colors">About Us</a>
-                            <a href="/products" className="block text-gray-400 hover:text-white transition-colors">Products</a>
+                            <Link href="/home" className="block text-gray-400 hover:text-white transition-colors">Home</Link>
+                            <Link href="/about" className="block text-gray-400 hover:text-white transition-colors">About Us</Link>
+                            <Link href="/products" className="block text-gray-400 hover:text-white transition-colors">Products</Link>
                             {/* <a href="#career" className="block text-gray-400 hover:text-white transition-colors">Career</a> */}
-                            <a href="/contact" className="block text-gray-400 hover:text-white transition-colors">Contact</a>
+                            <Link href="/contact" className="block text-gray-400 hover:text-white transition-colors">Contact</Link>
                         </div>
                     </div>
 
