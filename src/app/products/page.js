@@ -152,7 +152,11 @@ export default function ProductsPage()
                       <h3 className="text-lg font-extrabold mt-2 mb-1 bg-gradient-to-r from-orange-600 to-pink-600 bg-clip-text text-transparent">
                         {product.ProductName}
                       </h3>
-                      <p className="text-gray-600 text-sm mb-3">{product.ProductDescription}</p>
+                      <p className="text-gray-600 text-sm mb-3">
+                        {product.ProductDescription?.length > 45
+                          ? `${product.ProductDescription.slice(0, 45)}...`
+                          : product.ProductDescription}
+                      </p>
                       <div className="flex flex-wrap gap-1 mb-4">
                         {(product.FeaturesAndBenefits || []).slice(0, 2).map((feature, i) => (
                           <div

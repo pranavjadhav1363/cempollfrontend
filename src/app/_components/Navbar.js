@@ -3,8 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 import Link from "next/link";
 
-const Navbar = () =>
-{
+const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [categories, setCategories] = useState([]);
@@ -12,24 +11,19 @@ const Navbar = () =>
   const [categoryError, setCategoryError] = useState(null);
   const dropdownRef = useRef(null);
 
-  useEffect(() =>
-  {
-    const fetchCategories = async () =>
-    {
-      try
-      {
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
         const response = await fetch(
           `${process.env.NEXT_PUBLIC_ROUTES_API_URL}/web/categories`
         );
         if (!response.ok) throw new Error("Failed to fetch categories");
         const data = await response.json();
         setCategories(data || []);
-      } catch (error)
-      {
+      } catch (error) {
         setCategoryError("Failed to load product categories.");
         console.error(error);
-      } finally
-      {
+      } finally {
         setLoadingCategories(false);
       }
     };
@@ -37,16 +31,9 @@ const Navbar = () =>
     fetchCategories();
   }, []);
 
-  // 🔒 Close dropdown on outside click
-  useEffect(() =>
-  {
-    const handleClickOutside = (event) =>
-    {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      )
-      {
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setIsProductDropdownOpen(false);
       }
     };
@@ -56,17 +43,15 @@ const Navbar = () =>
 
   return (
     <nav className="bg-white/80 backdrop-blur-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <div className="flex items-center">
-            <div className="w-40 h-40 flex items-center justify-center">
-              <img
-                src="/cempoll_logo.jpeg"
-                alt="Cempoll Pro Logo"
-                className="w-120 h-auto object-contain"
-              />
-            </div>
+          <div className="w-55 h-45 flex items-center justify-center">
+            <img
+              src="/cempoll_logo.jpeg"
+              alt="Cempoll Pro Logo"
+              className="w-55 h-auto object-contain"
+            />
           </div>
 
           {/* Desktop Navigation */}
@@ -80,7 +65,7 @@ const Navbar = () =>
                 onClick={() => setIsProductDropdownOpen((prev) => !prev)}
                 className="flex items-center text-gray-700 hover:text-orange-600 font-medium"
               >
-                Products <ChevronDown className="ml-1 w-4 h-4" />
+                Product Categories <ChevronDown className="ml-1 w-4 h-4" />
               </button>
 
               {isProductDropdownOpen && (
@@ -119,13 +104,13 @@ const Navbar = () =>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-200 py-4">
+          <div className="md:hidden bg-white border-t border-gray-200 py-6">
             <div className="flex flex-col space-y-4 px-4">
               <Link href="/" className="text-gray-700 hover:text-orange-600 font-medium">Home</Link>
               <Link href="/about" className="text-gray-700 hover:text-orange-600 font-medium">About Us</Link>
 
               <div className="border-t border-gray-200 pt-2">
-                <p className="text-sm text-gray-500 font-semibold">Products</p>
+                <p className="text-sm text-gray-500 font-semibold">Product Categories</p>
                 {loadingCategories ? (
                   <div className="text-sm text-gray-500">Loading...</div>
                 ) : categoryError ? (
